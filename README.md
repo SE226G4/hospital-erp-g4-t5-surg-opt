@@ -1,12 +1,11 @@
-﻿# Module Name: [e.g., Surgery Optimization System]
-## Project: [Hospital ERP / MediChain]
-**Module Code:** [e.g., SURG-05]
-
+﻿# Module Name: [Surgical Optimization System]
+## Project: [Hospital ERP System]
+**Module Code:** [SURG-05]
+**Group:** G4 | Team: T5
 ---
 
 ## 📝 Module Overview
-Provide a brief description of what this module does based on the project text. (e.g., This module manages operating room schedules and prevents booking conflicts).
-
+هذا الموديول مسؤول عن إدارة وتحسين غرف العمليات الجراحية. يقوم النظام بجدولة العمليات، ومنع تضارب المواعيد، والتحقق من جاهزية الموارد (الأطباء، الأسرّة، والأدوات)، بالإضافة إلى إدارة أوقات التعقيم الإلزامية لضمان سلامة المرضى.
 ---
 
 ## 👥 Team Members & Responsibilities
@@ -14,12 +13,12 @@ Provide a brief description of what this module does based on the project text. 
 
 | Member Name | Primary Responsibility | Assigned Tasks (Examples) | GitHub Profile |
 | :--- | :--- | :--- | :--- |
-| **Student 1 (Leader)** | Integration & Architecture | Component Diagrams, API Specs, Team Coordination | [Link] |
-| **Student 2** | Requirements & Analysis | Functional Requirements, Use Case Diagrams | [Link] |
-| **Student 3** | Process Modeling | Activity Diagrams, Business Rules Validation | [Link] |
-| **Student 4** | Data Design | ERD, Database Schema, Class Diagrams | [Link] |
-| **Student 5 (Optional)** | Interaction Design | Sequence Diagrams, Logic Flow | [Link] |
-| **Student 6 (Optional)** | UI/UX & Frontend | Wireframes, Interface Logic, User Stories | [Link] |
+| **Elaf Mallohi (Leader)** | Integration & Architecture | Component Diagrams, API Specs, Team Coordination | [Link] |
+| **Qamar Idrees** | Requirements & Analysis | Functional Requirements, Use Case Diagrams | [Link] |
+| **Raghad Brejawi** | Process Modeling | Activity Diagrams, Business Rules Validation | [Link] |
+| **Lilas hammada** | Data Design | ERD, Database Schema, Class Diagrams | [Link] |
+| **Asmaa Rahhal** | Interaction Design | Sequence Diagrams, Logic Flow | [Link] |
+| **Maryam Hamwi** | UI/UX & Frontend | Wireframes, Interface Logic, User Stories | [Link] |
 
 ---
 
@@ -33,12 +32,13 @@ Provide a brief description of what this module does based on the project text. 
 ---
 
 ## 🔗 Integration Points
-*How this module communicates with others:*
-* **Inbound:** Data received from [Module Name].
-* **Outbound:** Data sent to [Module Name].
+*يتكامل نظامنا مع الأنظمة التالية لضمان دقة العمل:*
+* **Inbound (وارد): يستقبل بيانات المريض من Admission Module (Module 1).
+* **Inbound (وارد): يستقبل حالة توفر الأسرة من Bed Management (Module 3).
+* * **Outbound (صادر): يرسل بيانات العمليات المنجزة إلى Billing Module (Module 2).
 
 ---
 ## 🛠 Tools Used
-* **Modeling:** e.g., StarUML / Lucidchart.
+* **Modeling:** VS Code, .NET, Git.
 * **Documentation:** Markdown / LaTeX.
 * **Version Control:** GitHub.
