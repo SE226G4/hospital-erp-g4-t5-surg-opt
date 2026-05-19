@@ -13,12 +13,12 @@
 
 | Member Name | Primary Responsibility | Assigned Tasks (Examples) | GitHub Profile |
 | :--- | :--- | :--- | :--- |
-| **Elaf Mallohi (Leader)** | Integration & Architecture | Component Diagrams, API Specs, Team Coordination | [Link] |
-| **Qamar Idrees** | Requirements & Analysis | Functional Requirements, Use Case Diagrams | [Link] |
-| **Raghad Brejawi** | Process Modeling | Activity Diagrams, Business Rules Validation | [Link] |
-| **Lilas hammada** | Data Design | ERD, Database Schema, Class Diagrams | [Link] |
-| **Asmaa Rahhal** | Interaction Design | Sequence Diagrams, Logic Flow | [Link] |
-| **Maryam Hamwi** | UI/UX & Frontend | Wireframes, Interface Logic, User Stories | [Link] |
+| **Elaf Mallohi (Leader)** | Integration & Architecture | Master Component Diagram, Team Coordination | [elafmallohi](https://github.com/elafmallohi) |
+| **Qamar Idrees** | Requirements & Analysis | Functional Requirements, Coding (Functions 1 & 4) | [QamarIdrees22](https://github.com/QamarIdrees22) |
+| **Raghad Brejawi** | Process Modeling | Activity Diagrams, ERD Database Design | [raghadbrijawi](https://github.com/raghadbrijawi) |
+| **Lilas hammada** | Data Design | ERD Database Design, Shared Tables Integration | [hammadililas12-create](https://github.com/hammadililas12-create) |
+| **Asmaa Rahhal** | Interaction Design | Master Component Diagram, Logic Flow | [Asmaa20044](https://github.com/Asmaa20044) |
+| **Maryam Hamwi** | UI/UX & Frontend | User Stories, Coding (Functions 1 & 4) | [maryamalhamwi](https://github.com/maryamalhamwi) |
 
 ---
 
