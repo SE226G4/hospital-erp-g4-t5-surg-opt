@@ -2,7 +2,9 @@
 
 ## 1. Entity-Relationship Diagram (ERD)
 * الأداة المستخدمة: Draw.io
-* رابط تعديل المخطط على Draw.io: [اضغط هنا لفتح المخطط القابل للتعديل](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
+* رابط تعديل المخطط على Draw.io: [اضغط هنا لفتح المخطط القابل للتعديل]
+*
+* (https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
 * **رابط تعديل مخطط الأصناف (Class Diagram):**  [
 * اضغط هنا لفتح المخطط القابل للتعديل](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
 ---
@@ -57,9 +59,10 @@
 # Section 1: Process Modeling & Workflow (Raghad Brejawi)
 
 ## 1.1 Surgery Scheduling Activity Diagram
-* رابط تعديل المخطط على Draw.io: [اضغط هنا لفتح المخطط القابل للتعديل](https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D)
+* رابط تعديل المخطط على Draw.io:[اضغط هنا لفتح المخطط القابل للتعديل هنا]
 
-![Activity Diagram](activity_diagram.png)
+https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D
+![Activity Diagram](../activitydiagramraghad-Page-1.drawio.png)
 
 ### Flow of Events (توصيف مسار الأحداث):
 1. المسار الأساسي (Basic Flow):
@@ -73,7 +76,7 @@
    * في حال عدم كفاية وقت التعقيم، يتم رفض الحجز مباشرة وتحويل الحالة إلى ملغي (Cancelled).
 
 ## 1.2 Relational Schema Integration (ERD)
-![Process ERD](process_erd.png)
+![Process ERD](../erdraghad-Page-2.drawio.png)
 
 ---
 
