@@ -44,14 +44,56 @@
 
 ---
 
-## 3. Shared Data (Integration Points)
-بناءً على متمتطلبات منع تكرار البيانات وضمان الجودة، يعتمد موديولنا على التكامل مع الفرق الأخرى كالتالي:
+## 3. Relational Database Schema (الصيغة المنطقية الحرفية للـ Schema)
 
-* **Shared Table: Patients (عبر المعرف DigitalID)**
-  * **Shared With:** موديول القبول والترميز الطبي (Module 1) للتحقق من هوية المريض وملف المخاطر والحساسية قبل الجدولة.
-  
-* **Shared Table: MedicalServices (عبر حقل ربط التكاليف)**
-  * **Shared With:** موديول الفوترة والتأمين (Module 2) لإرسال تكاليف العمليات والموارد تلقائياً لفاتورة المريض الموحدة.
+* `Operating_Rooms (` **room_id (PK)**, room_number, status, last_sterilization `)`
+* `SurgicalBookings (` **surgery_id (PK)**, patient_name, surgery_type, start_time, end_time, status, *DigitalID (FK)*, *room_id (FK)*, *bed_id (FK)* `)`
+* `Sterilization_Logs (` **log_id (PK)**, start_time, end_time, *room_id (FK)* `)`
+* `Surgery_Resources (` **resource_id (PK)**, staff_id, staff_role, equipment_needed, *surgery_id (FK)* `)`
 
-* **Shared Bed Data (عبر المعرف bed_id)**
-  * **Shared With:** موديول الإقامة وإدارة الأسرة (Module 3) لضمان توفر سرير جاهز للمريض فور انتهاء جراحته.
+---
+
+## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)
+
+```sql
+-- 1. جدول غرف العمليات
+CREATE TABLE Operating_Rooms (
+    room_id INT PRIMARY KEY AUTO_INCREMENT,
+    room_number VARCHAR(50) NOT NULL UNIQUE,
+    status VARCHAR(50) DEFAULT 'Available',
+    last_sterilization DATETIME
+);
+
+-- 2. جدول العمليات والجدولة
+CREATE TABLE SurgicalBookings (
+    surgery_id INT PRIMARY KEY AUTO_INCREMENT,
+    DigitalID VARCHAR(50) NOT NULL, 
+    patient_name VARCHAR(100) NOT NULL,
+    surgery_type VARCHAR(100) NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    room_id INT,
+    bed_id INT, 
+    status VARCHAR(50) DEFAULT 'Scheduled',
+    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE SET NULL,
+    CONSTRAINT chk_surgery_time CHECK (end_time > start_time)
+);
+
+-- 3. جدول سجلات التعقيم
+CREATE TABLE Sterilization_Logs (
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    room_id INT NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE CASCADE
+);
+
+-- 4. جدول الموارد والفريق الطبي
+CREATE TABLE Surgery_Resources (
+    resource_id INT PRIMARY KEY AUTO_INCREMENT,
+    surgery_id INT NOT NULL,
+    staff_id INT NOT NULL,
+    staff_role VARCHAR(50) NOT NULL,
+    equipment_needed VARCHAR(255),
+    FOREIGN KEY (surgery_id) REFERENCES SurgicalBookings(surgery_id) ON DELETE CASCADE
+);
