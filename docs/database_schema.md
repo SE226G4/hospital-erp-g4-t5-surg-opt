@@ -54,54 +54,6 @@
 
 ---
 
-## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)
-
-```sql
--- 1. جدول غرف العمليات
-CREATE TABLE Operating_Rooms (
-    room_id INT PRIMARY KEY AUTO_INCREMENT,
-    room_number VARCHAR(50) NOT NULL UNIQUE,
-    status VARCHAR(50) DEFAULT 'Available',
-    last_sterilization DATETIME
-);
-
--- 2. جدول العمليات والجدولة
-CREATE TABLE SurgicalBookings (
-    surgery_id INT PRIMARY KEY AUTO_INCREMENT,
-    DigitalID VARCHAR(50) NOT NULL, 
-    patient_name VARCHAR(100) NOT NULL,
-    surgery_type VARCHAR(100) NOT NULL,
-    start_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
-    room_id INT,
-    bed_id INT, 
-    status VARCHAR(50) DEFAULT 'Scheduled',
-    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE SET NULL,
-    CONSTRAINT chk_surgery_time CHECK (end_time > start_time)
-);
-
--- 3. جدول سجلات التعقيم
-CREATE TABLE Sterilization_Logs (
-    log_id INT PRIMARY KEY AUTO_INCREMENT,
-    room_id INT NOT NULL,
-    start_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
-    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE CASCADE
-);
-
--- 4. جدول الموارد والفريق الطبي
-CREATE TABLE Surgery_Resources (
-    resource_id INT PRIMARY KEY AUTO_INCREMENT,
-    surgery_id INT NOT NULL,
-    staff_id INT NOT NULL,
-    staff_role VARCHAR(50) NOT NULL,
-    equipment_needed VARCHAR(255),
-    FOREIGN KEY (surgery_id) REFERENCES SurgicalBookings(surgery_id) ON DELETE CASCADE
-);
-
-
-
-
 # Section 1: Process Modeling & Workflow (Raghad Brejawi)
 
 ## 1.1 Surgery Scheduling Activity Diagram
@@ -124,8 +76,6 @@ CREATE TABLE Surgery_Resources (
 ![Process ERD](process_erd.png)
 
 ---
-
-
 
 ## 5. توثيق موديول جدولة العمليات الجراحية (رغد بريجاوي)
 
@@ -186,8 +136,57 @@ CREATE TABLE Surgery_Resources (
 
 * السيناريو الثاني: فشل الحجز بسبب خرق وقت التعقيم (تدفق خاطئ - Invalid Input)
   * الحالة: محاولة حجز غرفة العمليات (A) لعملية ثانية تبدأ الساعة 11:15 صباحاً، علماً أن العملية السابقة تنتهي الساعة 11:00 صباحاً.
-
-
-
+ 
+  
 * الشروط المسبقة: العملية الأولى تنتهي الساعة 11:00 تماماً (الفارق المتاح 15 دقيقة فقط).
   * استجابة النظام: يكتشف النظام خرق قاعدة التعقيم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
+
+## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)
+
+```sql
+-- 1. جدول غرف العمليات
+CREATE TABLE Operating_Rooms (
+    room_id INT PRIMARY KEY AUTO_INCREMENT,
+    room_number VARCHAR(50) NOT NULL UNIQUE,
+    status VARCHAR(50) DEFAULT 'Available',
+    last_sterilization DATETIME
+);
+
+-- 2. جدول العمليات والجدولة
+CREATE TABLE SurgicalBookings (
+    surgery_id INT PRIMARY KEY AUTO_INCREMENT,
+    DigitalID VARCHAR(50) NOT NULL, 
+    patient_name VARCHAR(100) NOT NULL,
+    surgery_type VARCHAR(100) NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    room_id INT,
+    bed_id INT, 
+    status VARCHAR(50) DEFAULT 'Scheduled',
+    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE SET NULL,
+    CONSTRAINT chk_surgery_time CHECK (end_time > start_time)
+);
+
+-- 3. جدول سجلات التعقيم
+CREATE TABLE Sterilization_Logs (
+    log_id INT PRIMARY KEY AUTO_INCREMENT,
+    room_id INT NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES Operating_Rooms(room_id) ON DELETE CASCADE
+);
+
+-- 4. جدول الموارد والفريق الطبي
+CREATE TABLE Surgery_Resources (
+    resource_id INT PRIMARY KEY AUTO_INCREMENT,
+    surgery_id INT NOT NULL,
+    staff_id INT NOT NULL,
+    staff_role VARCHAR(50) NOT NULL,
+    equipment_needed VARCHAR(255),
+    FOREIGN KEY (surgery_id) REFERENCES SurgicalBookings(surgery_id) ON DELETE CASCADE
+);
+
+
+
+
+يم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
