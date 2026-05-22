@@ -62,7 +62,7 @@
 * رابط تعديل المخطط على Draw.io:[اضغط هنا لفتح المخطط القابل للتعديل هنا]
 
 https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D
-![Activity Diagram](../activitydiagramraghad-Page-1.drawio.png)
+
 
 ### Flow of Events (توصيف مسار الأحداث):
 1. المسار الأساسي (Basic Flow):
@@ -76,7 +76,7 @@ https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pag
    * في حال عدم كفاية وقت التعقيم، يتم رفض الحجز مباشرة وتحويل الحالة إلى ملغي (Cancelled).
 
 ## 1.2 Relational Schema Integration (ERD)
-![Process ERD](../erdraghad-Page-2.drawio.png)
+
 
 ---
 
