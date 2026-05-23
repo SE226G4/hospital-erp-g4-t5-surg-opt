@@ -75,7 +75,7 @@ https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pag
    * في حال عدم توفر الموارد، يطلب النظام من المستخدم تغيير الوقت أو الغرفة.
    * في حال عدم كفاية وقت التعقيم، يتم رفض الحجز مباشرة وتحويل الحالة إلى ملغي (Cancelled).
 
-## 1.2 Relational Schema Integration (ERD)
+## 1.2 Relational Schema Integration (ERD)(Raghad Brejawi)
 
 
 ---
