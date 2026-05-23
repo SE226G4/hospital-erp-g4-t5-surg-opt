@@ -116,7 +116,7 @@
 
 ---
 
-### 5.2 نمذجة العمليات ومخطط النشاط (Activity Diagram)
+### 5.2 نمذجة العمليات ومخطط النشاط   Raghad Brejawi) (Activity Diagram)
 
 يوضح المخطط التالي دورة حياة طلب حجز العملية والتحققات البرمجية التي تجريها الدالة ValidateAndScheduleSurgery عبر الطبقات الثلاث (SurgicalScheduler, System, Notification System):
 
