@@ -95,6 +95,28 @@ https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pag
 2. المسارات البديلة (Alternative Flows):
    * في حال عدم توفر الموارد، يطلب النظام من المستخدم تغيير الوقت أو الغرفة.
    * في حال عدم كفاية وقت التعقيم، يتم رفض الحجز مباشرة وتحويل الحالة إلى ملغي (Cancelled).
+  
+     
+# Section 1: Process Modeling & Workflow (Raghad Brejawi)
+
+## 1.1 Surgery Scheduling Activity Diagram
+* رابط تعديل المخطط على Draw.io: [اضغط هنا لفتح المخطط القابل للتعديل]
+*
+*
+* (https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D)
+
+
+
+### Flow of Events (توصيف مسار الأحداث):
+1. المسار الأساسي (Basic Flow):
+   * يبدأ الجراح أو المجدوِل بإدخال بيانات المريض وتفاصيل الجراحة المطلوبة.
+   * يقوم النظام بتشغيل دالة التحقق والجدولة Validate And Schedule Surgery().
+   * يتم فحص توفر الطاقم الطبي والغرفة (AreStaff & OR Available)، ثم التحقق من وقت التعقيم الفاصل (Verify Buffer Time 30-40mins).
+   * عند استيفاء الشروط، يتم تأكيد الحجز وتحويل الحالة إلى (Scheduled) وإرسال إشعارات للواجهات.
+
+2. المسارات البديلة (Alternative Flows):
+   * في حال عدم توفر الموارد، يطلب النظام من المستخدم تغيير الوقت أو الغرفة.
+   * في حال عدم كفاية وقت التعقيم، يتم رفض الحجز مباشرة وتحويل الحالة إلى ملغي (Cancelled).
 
 ## 1.2 Relational Schema Integration (ERD)(Raghad Brejawi)
 
@@ -161,7 +183,6 @@ https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pag
     * الشروط المسبقة: العملية الأولى تنتهي الساعة 11:00 تماماً (الفارق المتاح 15 دقيقة فقط).
   * استجابة النظام: يكتشف النظام خرق قاعدة التعقيم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
 ---
-
 ---
 
 ## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)(Lilas Hamadah)
