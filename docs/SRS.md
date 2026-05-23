@@ -191,9 +191,7 @@ Feature 3: Cross-Module Integration & Resource Verification
   * جدول حجز العمليات وإدارة غرف العمليات (`SurgicalBookings`).
 
 ---
-
-
-5.5 تقرير المساهمة الفردية وتوثيق المهام (Individual Contribution Report) (Qamar Idrees):
+## 6.Individual Contribution Report & Use Case (Qamar Idres):
 الموديول المسؤول عنه (Assigned Module): موديول تحسين وجدولة غرف العمليات (Surgical Optimization - Module 5)
 أولاً: ملخص الشغل الهندسي المنجز في تحليل وتصميم النظام
 تصميم وبناء مخطط المكونات والتكامل (Component Diagram):
