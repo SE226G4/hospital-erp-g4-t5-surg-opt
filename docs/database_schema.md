@@ -83,7 +83,7 @@
 
 ### 5.1 مخطط علاقات الكيانات (Entity-Relationship Diagram - ERD)
 * **الأداة المستخدمة:** Draw.io
-* **رابط تعديل المخطط المباشر:** [اضغط هنا لفتح المخطط القابل للتعديل على Draw.io](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
+* **رابط تعديل المخطط المباشر:** (https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
 * **عرض مخطط قاعدة البيانات (ERD):**
 ![Entity Relationship Diagram](../erd-diagram.png)
 
