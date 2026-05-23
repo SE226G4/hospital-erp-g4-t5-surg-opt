@@ -93,6 +93,8 @@
 * الأداة المستخدمة: Draw.io
 * رابط تعديل المخطط المباشر: اضغط هنا لفتح المخطط القابل للتعديل على Draw.io
 
+https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D
+
 #### عرض مخطط قاعدة البيانات (ERD):
 !Entity Relationship Diagram
 
