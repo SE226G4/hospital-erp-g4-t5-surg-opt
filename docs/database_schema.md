@@ -78,8 +78,10 @@
 # Section 1: Process Modeling & Workflow (Raghad Brejawi)
 
 ## 1.1 Surgery Scheduling Activity Diagram
-* رابط تعديل المخطط على Draw.io: [اضغط هنا لفتح المخطط القابل للتعديل]
-* (https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D)
+* رابط تعديل المخطط على Draw.io:[اضغط هنا لفتح المخطط القابل للتعديل]
+
+
+https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pageId%22%3A%22neiKABBSU_3DcmXe3jSo%22%7D
 
 
 
