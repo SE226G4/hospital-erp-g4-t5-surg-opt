@@ -1,109 +1,83 @@
-# Software Requirements Specification (SRS)
+# Software Requirements Specification (SRS) - Module 5 (Surgical Optimization)
+**Hospital ERP System | Module Code: SURG-05 (Group: G4 | Team: T5)**
+**Team Leader:** Elaf Mallohi
 
-**Project:** Hospital ERP System  
-**Module/Subsystem:** Surgical Optimization - Module 5  
-**Version:** 1.0  
-**Date:** 2026-05-08
-
----
-
-## 1. Introduction
-
-### 1.1 Purpose
-الغرض من هذا المستند هو تحديد المتطلبات البرمجية لموديول "تحسين غرف العمليات". يهدف النظام إلى تنسيق جدولة العمليات الجراحية لضمان كفاءة العمل ومنع أي تضارب في المواعيد.
-
-### 1.2 Scope
-نظام لجدولة العمليات الجراحية، يمنع تضارب المواعيد، ويتأكد من توفر الأسرة والفريق الطبي والتعقيم قبل البدء.
+## 1. Module Overview
+هذا الموديول مسؤول عن إدارة وتحسين غرف العمليات الجراحية؛ حيث يقوم بجدولة العمليات، ومنع تضارب المواعيد، والتحقق من جاهزية الموارد (الأطباء، الأسرّة، والأدوات)، بالإضافة إلى إدارة أوقات التعقيم الإلزامية لضمان سلامة المرضى.
 
 ---
 
-## 2. Overall Description
+## 2. Use Case Specification
+* **Primary Actor:** Operating Surgeon / Surgical Schedule Manager
+* **Pre-conditions:** أن يكون المريض مسجلاً بشكل قانوني في المستشفى ويمتلك رقماً تعريفياً صالحاً (PatientDigitalID).
 
-### 2.1 Product Perspective
-هذا الموديول جزء من نظام المشفى المتكامل، ويعتمد بشكل أساسي على بيانات المريض من نظام القبول (Module 1).
-
-### 2.2 Product Functions
-* جدولة العمليات الجراحية ومنع تضارب المواعيد.
-* التحقق من توفر الفريق الطبي والأسرة قبل الحجز.
-* إدارة وقت التعقيم الإلزامي بين العمليات.
-
-### 2.3 User Characteristics
-المستخدمون هم الأطباء الجراحون، طاقم التمريض، وإدارة غرف العمليات.
-
----
-
-## 3. Specific Requirements (Agile Approach)
-
-### 3.2 System Features & User Stories
-
-#### 3.2.1 Feature: Surgical Scheduling
-**Description:** نظام لجدولة المواعيد يمنع التداخل.
-
-**User Stories:**
-* بصفتي جراحاً، أريد جدولة عملية جراحية بحيث يمنع النظام أي تضارب في المواعيد. **(GitHub Issue: #1)**
-* بصفتي مسؤول تعقيم، أريد من النظام احتساب وقت التعقيم الإلزامي بين العمليات. **(GitHub Issue: #4)**
-
-#### 3.2.2 Feature: Resource Validation
-**Description:** التحقق من المتطلبات قبل الحجز.
-
-**User Stories:**
-* بصفتي منسقاً، أريد ألا يسمح النظام بحجز عملية إلا بعد التأكد من توفر الفريق الطبي والأسرة (نظام الأسرة). **(GitHub Issue: #2, #3)**
-* بصفتي مبرمجاً، أريد أن يعتمد النظام حصراً على بيانات المريض من نظام القبول. **(GitHub Issue: #5)**
+### 2.1 Flow of Events (التدفق الأساسي)
+1. يقوم المستخدم بإدخال تفاصيل الجراحة، وتحديد الغرفة والوقت المقترح.
+2. يستعلم النظام آلياً عن ملف المخاطر الصحية للمريض من نظام ADM-MC (Module 1).
+3. يرسل النظام طلباً لنظام الأسرة (Module 3) لتأمين سرير إقامة لما بعد الجراحة.
+4. يحسب النظام وقت التعقيم المطلق بناءً على نوع العملية ويحظره في الجدول لمنع التداخل.
+5. يتحقق النظام من عدم وجود تضارب في مواعيد الطاقم والأدوات.
+6. يتم تأكيد الموعد النهائي وحفظه.
 
 ---
 
-## 4. Appendices
+## 3. Functional Requirements (FRs)
 
-### Appendix B: GitHub Traceability Checklist
-* [x] Every User Story in Section 3.2 has a corresponding GitHub Issue.
-* [x] Every GitHub Issue has an appropriate label.
-* [x] Pull Requests reference the Issue IDs (e.g., Closes #1).
-
----
-
-## 5. توثيق موديول جدولة العمليات الجراحية - مخطط حالات الاستخدام (Use Case Specification)
-
-**Prepared By:** Qamar Idrees (Functional Requirements)
-
-يغطي هذا القسم التصميم اللوجستي وحالات الاستخدام الأساسية الخاصة بالطبيب والمجدوِل داخل موديول "تحسين غرف العمليات"، مع توثيق المتطلبات الوظيفية والروابط الحية للمخطط.
-
----
-
-### 5.1 مخطط حالات الاستخدام (Use Case Diagram)
-
-* **الأداة المستخدمة:** Draw.io (Diagrams.net)
-* **رابط التعديل للمخطط:** [اضغط هنا لفتح مخطط حالات الاستخدام على Draw.io](https://drive.google.com/file/d/1R4uqBBfvsWN8nCmqOo2FKa0HadRnxaCP/view?usp=sharing)
-
-#### 5.1.1 جدول توصيف حالة الاستخدام الرئيسية (Use Case Specification Table)
-
-| عنصر التوصيف | الشرح الهندسي واللوجستي للحالة |
-| :--- | :--- |
-| **اسم حالة الاستخدام** | جدولة عملية جراحية جديدة (`Schedule New Surgical Operation`) |
-| **الفاعلون الأساسيون** | طبيب العمليات الجراحية (`Operating Surgeon`) / مدير جدولة العمليات (`Surgical Schedule Manager`) |
-| **الشروط المسبقة (Pre-conditions)** | أن يكون المريض مسجلاً بشكل قانوني في المستشفى ويمتلك رقماً تعريفياً صالحاً (`Patient ID`). |
-| **التدفق الأساسي للنظام (Basic Flow)** | 1. يقوم المستخدم بإدخال تفاصيل الجراحة، وتحديد الغرفة والوقت المقترح.<br>2. يستعلم النظام آلياً عن ملف المخاطر الصحية للمريض من نظام `ADM-MC`.<br>3. يرسل النظام طلباً لنظام الأسرة لتأمين سرير إقامة لما بعد الجراحة.<br>4. يحسب النظام وقت التعقيم المطلق بناءً على نوع العملية ويحظره في الجدول لمنع التداخل.<br>5. يتحقق النظام من عدم وجود تضارب في مواعيد الطاقم والأدوات.<br>6. يتم تأكيد الموعد النهائي وحفظه في قاعدة البيانات بحالة `Scheduled`. |
-| **العلاقات المضمنة (Includes)** | التحقق من ملف المخاطر الصحية، حجز سرير الإقامة، حظر وقت التعقيم، والتحقق من جاهزية الموارد والفريق اللوجستي. |
-
----
-
-### 5.2 المتطلبات الوظيفية للنظام (Functional Requirements)
-
-#### أولاً: إدارة واجهة الجدولة (Surgery Scheduling Management)
-* **FR-1:** يجب على النظام توفير واجهة رسومية تتيح للموظف المخول إدخال طلب جراحي جديد يشمل (رقم المريض، غرفة العمليات المستهدفة، التاريخ، والوقت المقترح).
+### A. Surgery Scheduling Management
+* **FR-1:** يجب على النظام توفير واجهة رسومية تتيح للموظف المخول إدخال طلب جراحي جديد يشمل (رقم المريض الرقمي، غرفة العمليات المستهدفة، التاريخ، والوقت المقترح).
 * **FR-2:** يجب على النظام رفض ومنع حفظ أي حجز جراحي في قاعدة البيانات المركزية ما لم يتم التحقق بنجاح من كافة القيود اللوجستية والطبية الإجبارية.
 
-#### ثانياً: التحقق من المخاطر الصحية (Health Risk Profile Verification)
-* **FR-3:** يجب على النظام بناء اتصال برمي آمن مع نظام القبول والترميز الطبي (`ADM-MC`) لقراءة الرموز الطبية والتشخيصية المسجلة للمريض بشكل مؤتمت.
+### B. Health Risk Profile Verification (Module 1 Integration)
+* **FR-3:** يجب على النظام بناء اتصال برمي آمن مع نظام القبول والترميز الطبي لقراءة الرموز الطبية والتشخيصية المسجلة للمريض بشكل مؤتمت.
 * **FR-4:** يجب على النظام تحليل ملف المخاطر الصحية المسترجع للتأكد من ملاءمة المريض طبياً لإجراء الجراحة وعدم وجود موانع حرجة.
 
-#### ثالثاً: حجز وإدارة أسرة الإقامة (Post-Op Bed Reservation)
-* **FR-5:** يجب على النظام إرسال استعلام فوري لنظام إدارة أسرة الأقسام الداخلية (`IPD-BED`) للتحقق من وجود سرير شاغر ومجهز لاستقبال المريض فور انتهاء جراحته.
+### C. Inpatient Department Bed Management (Module 3 Integration)
+* **FR-5:** يجب على النظام إرسال استعلام فوري لنظام إدارة أسرة الأقسام الداخلية للتحقق من وجود سرير شاغر ومجهز لاستقبال المريض فور انتهاء جراحته.
 * **FR-6:** يجب على النظام إرسال أمر حجز مؤكد وتخصيص السرير وربطه بملف العملية الجراحية لضمان اللوجستيات الطبية.
 
-#### رابعاً: إدارة فترات التعقيم وحظر المواعيد (Mandatory Sterilization Blocking)
+### D. Mandatory Sterilization Blocking
 * **FR-7:** يجب على النظام احتساب وقت التعقيم والتطهير الإلزامي لغرفة العمليات بشكل ديناميكي بناءً على نوع العملية الجراحية المسجلة برمزها الطبي.
-* **FR-8:** يجب على النظام حظر (`Block`) الغرفة تماماً في جدول المواعيد خلال نافذة التعقيم المحسوبة لمنع أي تداخل أو ازدواجية في الحجوزات.
+* **FR-8:** يجب على النظام حظر (Block) الغرفة تماماً في جدول المواعيد خلال نافذة التعقيم المحسوبة لمنع أي تداخل أو ازدواجية في الحجوزات.
 
-#### خامساً: حوكمة جاهزية الموارد والطاقم (Resource Readiness Verification)
+### E. Resource Readiness Verification
 * **FR-9:** يجب على النظام إجراء فحص تضارب المواعيد للتأكد من أن الطاقم الطبي المحدد (الجراحين، أطباء التخدير، وممرضي الغرفة) متاحون بالكامل وغير مرتبطين بعمليات أخرى في نفس الوقت.
 * **FR-10:** يجب على النظام التحقق من جاهزية وتوفر الأدوات والأجهزة الطبية المعقمة والمطلوبة لطبيعة هذه الجراحة المحددة قبل إعطاء أمر التأكيد النهائي.
+
+---
+
+## 4. Process Modeling & Workflow (Raghad Brejawi)
+* **رابط تعديل الـ Activity Diagram على Draw.io:** [اضغط هنا لفتح المخطط](https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql)
+* **عرض مخطط النشاط البنيوي:**
+![Surgical Scheduling Activity Diagram](../activity-diagram.png)
+
+### 4.1 Business Rules & Verification Logic
+* **BR_OR_01 (تضارب الموارد):** يمنع حجز عمليتين جراحيتين في نفس غرفة العمليات وفي نفس الوقت تماماً.
+* **BR_OR_02 (توفر الطاقم الطبي):** يجب أن يكون الطبيب الجراح وطبيب التخدير المختارين متاحين وغير مرتبطين بعملية أخرى.
+* **BR_OR_03 (وقت التعقيم الإلزامي):** يجب وجود فارق زمني (Buffer Time) لا يقل عن 30-45 دقيقة بين العمليات المتتالية في نفس الغرفة لتنظيفها وتعقيمها.
+* **BR_OR_04 (فحص ما قبل العملية):** لا يمكن اعتماد حالة الحجز كـ (Scheduled) إلا بعد التحقق من اكتمال قائمة الفحوصات الأولية للمريض.
+
+### 4.2 Validation Test Cases (سيناريوهات الفحص البرمجي)
+* **السيناريو الأول: نجاح عملية الحجز (تدفق سليم - Valid Input)**
+  * *الحالة:* طلب حجز غرفة العمليات (A) يوم السبت الساعة 10:00 صباحاً.
+  * *الاستجابة:* تمرير الحجز بنجاح وتخزينه بحالة `Status = "Scheduled"` وتفعيل واجهات الإشعارات.
+* **السيناريو الثاني: فشل الحجز بسبب خرق وقت التعقيم (تدفق خاطئ - Invalid Input)**
+  * *الحالة:* محاولة حجز الغرفة (A) لعملية ثانية تبدأ 11:15 صباحاً علماً أن العملية السابقة تنتهي 11:00 صباحاً (الفارق 15 دقيقة فقط).
+  * *الاستجابة:* يكتشف النظام خرق قاعدة التعقيم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى `Cancelled` مع إظهار تنبيه برفض الحجز.
+
+---
+
+## 5. User Stories & Interface Logic (Maryam Hamwi)
+* **رابط مخطط التتابع المعماري (Sequence Diagram):** [اضغط هنا للاطلاع على المخطط](https://drive.google.com/file/d/1Tp552sqs07dr1AhAjJiO3CbHDzHxVEiv/view?usp=sharing)
+
+### 5.1 Agile User Stories
+* **US1 (Surgery Scheduling):** As a Surgeon, I want to schedule a surgical operation for a patient through the UI, So that the operating room and time slot are reserved efficiently. *(Mapped to GitHub Issue #1)*
+* **US2 (Conflict Prevention):** As an Operations Coordinator, I want the system to automatically block any surgery scheduling if there is a time conflict for the selected operating room, So that we can prevent scheduling overlaps and delays. *(Mapped to GitHub Issue #2)*
+* **US3 (Mandatory Sterilization):** As a Surgeon, I want the system to automatically include a mandatory sterilization time buffer after each surgery in the room, So that patient safety is ensured and the room is prepared for the next operation. *(Mapped to GitHub Issue #3)*
+* **US4 (Resource Check):** As an Operations Coordinator, I want the system to verify the availability of the full medical team and the readiness of surgical tools before confirming the schedule. *(Mapped to GitHub Issue #4)*
+* **US5 (Bed Reservation):** As an Operations Coordinator, I want the system to check and secure a post-operative bed for the patient via the IPD-BED system. *(Mapped to GitHub Issue #5)*
+* **US6 (Unified Patient File):** As a Surgeon, I want the system to automatically fetch the patient’s medical data and risk profile from the ADM-MC system using their ID. *(Mapped to GitHub Issue #6)*
+
+### 5.2 Interface Logic (منطق استجابة الواجهة)
+* **Form Validation:** زر "إرسال الطلب" (Submit) يظل معطلاً (Disabled) ولا يمكن الضغط عليه حتى يتم ملء جميع الحقول الإلزامية.
+* **Loading State:** عند الضغط على زر الحجز، تتحول الواجهة لحالة الانتظار ويظهر مؤشر تحميل (Loading Spinner) لمنع تكرار إرسال الطلبات المتطابقة أثناء المعالجة.
+* **Dynamic Feedback:** في حالة النجاح، تظهر رسالة نجاح خضراء تعرض تفاصيل الحجز المؤكد. في حالة الفشل، يظل النموذج مفتوحاً مع إظهار رسالة خطأ حمراء منبثقة (مثال: "تضارب في الوقت: الغرفة بحاجة لـ 45 دقيقة تعقيم").
