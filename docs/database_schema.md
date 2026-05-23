@@ -193,6 +193,7 @@ CREATE TABLE Surgery_Resources (
 
 
 يم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
+---
 
 
 # Sequence diagram$User Stories$Agile$Interface Logic(Maryam Alhamwi)
