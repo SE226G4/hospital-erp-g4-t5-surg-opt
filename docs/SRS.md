@@ -170,7 +170,7 @@ Feature 3: Cross-Module Integration & Resource Verification
  ## 5. Module Integration & Interfaces (Asmaa)
 يوضح هذا القسم هندسة الربط المشترك بين موديول **تحسين الجراحة (Surgical Optimization - Module 5)** والموديولات الأخرى في نظام الـ ERP للمستشفى، لضمان تدفق البيانات المؤتمت ومنع التكرار أو التضارب الهندسي.
 
-* **رابط مخطط المكونات والتكامل المشترك (Component Diagram) على Draw.io:** [اضغط هنا لفتح مخطط تكامل الأنظمة التفاعلي](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&dark=auto)
+* **رابط مخطط المكونات والتكامل المشترك (Component Diagram) على Draw.io:** [اضغط هنا لفتح مخطط تكامل الأنظمة التفاعلي](https://www.figma.com/design/1YfeXcpSHLgEmMNbHcGqke/asmaa-alrahal-medical?node-id=0-1&t=E8Y1sTYxIsj0JrjT-1)
 
 ### 5.4.1 موديول القبول والترميز الطبي (`Admission Module - Module 1`)
 * **الواجهة البرمجية المعتمدة:** `IPatientData`
