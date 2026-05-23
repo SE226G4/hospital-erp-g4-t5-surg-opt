@@ -193,3 +193,87 @@ CREATE TABLE Surgery_Resources (
 
 
 يم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
+
+
+# Sequence diagram$User Stories$Agile$Interface Logic(Maryam Alhamwi)
+رابط للاطلاع على المخطط: https://drive.google.com/file/d/1Tp552sqs07dr1AhAjJiO3CbHDzHxVEiv/view?usp=sharing
+1-User Stories
+1.User Stories for Scheduling operation and control in time:
+​As a Surgeon,
+​I want to schedule a surgical operation for a patient through the UI,
+​So that the operating room and time slot are reserved efficiently.
+
+​US2 (Conflict Prevention):
+​As an Operations Coordinator,
+​I want the system to automatically block any surgery scheduling if there is a time conflict for the selected operating room,  
+​So that we can prevent scheduling overlaps and delays.
+
+​US3 (Mandatory Sterilization):
+​As a Surgeon,
+​I want the system to automatically include a mandatory sterilization time buffer after each surgery in the room,  
+​So that patient safety is ensured and the room is prepared for the next operation.
+
+​2. User Stories for System Integration & Verification:
+​US4 (Resource Availability Check):
+​As an Operations Coordinator,
+​I want the system to verify the availability of the full medical team and the readiness of surgical tools before confirming the schedule,  
+​So that we ensure no operation starts with missing personnel or equipment.
+
+​US5 (Bed Reservation - IPD Integration):
+​As an Operations Coordinator,
+​I want the system to check and secure a post-operative bed for the patient via the Inpatient & Bed Management system (IPD-BED),
+​So that we guarantee a place for the patient immediately after the surgery.
+
+​US6 (Unified Patient File - ADM Integration):
+​As a Surgeon,
+​I want the system to automatically fetch the patient’s medical data and risk profile from the Admission & Medical Coding system (ADM-MC) using their National ID,
+​So that we rely on a unified record and prevent data duplication or identification errors.
+
+2-Agile Methods:
+ Feature 1: Surgery Scheduling & Conflict Prevention
+ * Scenario 1: Successful Surgery Booking :
+    Given the surgeon is logged into the Surgical Optimization system.
+    And the Operating Room (OR 1) is vacant on Wednesday at 10:00 AM.
+    When the surgeon enters the surgery details and clicks "Process Surgery Request".
+    Then the system should successfully reserve the room and display a "Success Message".
+* Scenario 2: Room Time Conflict :
+    Given the Operating Room (OR 1) is already reserved from 10:00 AM to 12:00 PM.
+    When the coordinator tries to book another surgery in OR 1 at 11:00 AM.
+    Then the system must reject the booking.
+    And display an error message: "Time slot conflict detected".
+
+ Feature 2: Mandatory Sterilization Time Buffer
+ * Scenario 1: Auto-inserting Sterilization Period :
+    Given a surgery is being scheduled in OR 2 from 01:00 PM to 03:00 PM.
+    When the surgery booking is confirmed.
+    Then the system must automatically block the next 30 minutes (03:00 PM - 03:30 PM) for mandatory sterilization.
+    And prevent any other bookings during this buffer.
+
+Feature 3: Cross-Module Integration & Resource Verification
+ * Scenario 1: Unified Patient File Verification - ADM Integration :
+    Given the system is integrated with the Admission & Medical Coding system (ADM-MC).
+    When entering a National ID for a patient whose profile or risk check is incomplete.
+    Then the system must block the scheduling request.
+    And prompt an error: "Incomplete Patient Risk Profile".
+
+* Scenario 2: Resource and Medical Team Availability Check :
+    Given the coordinator is finalizing a surgery schedule.
+    When the system verifies resources and finds any required medical staff unavailable OR surgical tools unready.
+    Then the system must halt the confirmation.
+    And display a notification specifying the missing personnel or equipment.
+
+* Scenario 3: Post-Op Bed Security - IPD Integration :
+    Given the system is checking bed availability via the Inpatient & Bed Management system (IPD-BED).
+    When there are no available or ready beds in the post-operative ward.
+    Then the system should halt the booking.
+    And notify the user that no post-op beds are available.
+
+ 3- Interface Logic (منطق استجابة الواجهة - UI Logic)
+
+* Form Validation (التحقق من المدخلات):
+  * زر "إرسال الطلب" (Submit) يظل معطلاً (Disabled) ولا يمكن الضغط عليه حتى يتم ملء جميع الحقول الإلزامية (اسم المريض، المعرّف الرقمي، نوع العملية، ووقت البدء).
+* Loading State (حالة الانتظار):
+  * عند الضغط على زر الحجز، تتحول الواجهة لحالة الانتظار ويظهر مؤشر تحميل (Loading Spinner) مع تعطيل الزر مؤقتاً، وذلك لمنع المستخدم من تكرار الضغط وإرسال طلبين متطابقين أثناء معالجة البيانات في الـ SURG_OPT_CONTROLLER.
+* Dynamic Feedback (الاستجابة الديناميكية):
+  * في حالة النجاح: يختفي نموذج الإدخال وتظهر رسالة نجاح خضراء واضحة تعيد عرض تفاصيل الحجز المؤكد.
+  * في حالة الفشل: يظل النموذج مفتوحاً مع إظهار رسالة خطأ حمراء منبثقة (مثل: "تضارب في الوقت: الغرفة بحاجة لـ 45 دقيقة تعقيم") لكي يستطيع المستخدم تعديل الوقت فوراً دون إعادة كتابة البيانات.
