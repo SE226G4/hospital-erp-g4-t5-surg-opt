@@ -66,7 +66,7 @@
 
 ---
 
-## 5.Sequence diagram $ Agile$ User Stories & Interface Logic (Maryam Hamwi)
+## 5.Sequence diagram $ Agile$ User Stories & Interface Logic (Maryam Alhamwi)
 
 رابط للاطلاع على المخطط: https://drive.google.com/file/d/1Tp552sqs07dr1AhAjJiO3CbHDzHxVEiv/view?usp=sharing
 
