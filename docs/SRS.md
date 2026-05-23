@@ -58,19 +58,22 @@
 * [x] Every User Story in Section 3.2 has a corresponding GitHub Issue.
 * [x] Every GitHub Issue has an appropriate label.
 * [x] Pull Requests reference the Issue IDs (e.g., Closes #1).
+
 ---
-Qamar Idrees Functional Requirments :
+
 ## 5. توثيق موديول جدولة العمليات الجراحية - مخطط حالات الاستخدام (Use Case Specification)
+
+**Prepared By:** Qamar Idrees (Functional Requirements)
 
 يغطي هذا القسم التصميم اللوجستي وحالات الاستخدام الأساسية الخاصة بالطبيب والمجدوِل داخل موديول "تحسين غرف العمليات"، مع توثيق المتطلبات الوظيفية والروابط الحية للمخطط.
 
 ---
 
 ### 5.1 مخطط حالات الاستخدام (Use Case Diagram)
+
 * **الأداة المستخدمة:** Draw.io (Diagrams.net)
-* **رابط التعديل للمخطط:**
-*[اضغط هنا لفتح مخطط حالات الاستخدام](https://drive.google.com/file/d/1R4uqBBfvsWN8nCmqOo2FKa0HadRnxaCP/view?usp=sharing)
-* [اضغط هنا لفتح مخطط حالات الاستخدام على Draw.io](https://drive.google.com/file/d/1R4uqBBfvsWN8nCmqOo2FKa0HadRnxaCP/view?usp=sharing)
+* **رابط التعديل للمخطط:** [اضغط هنا لفتح مخطط حالات الاستخدام على Draw.io](https://drive.google.com/file/d/1R4uqBBfvsWN8nCmqOo2FKa0HadRnxaCP/view?usp=sharing)
+
 #### 5.1.1 جدول توصيف حالة الاستخدام الرئيسية (Use Case Specification Table)
 
 | عنصر التوصيف | الشرح الهندسي واللوجستي للحالة |
