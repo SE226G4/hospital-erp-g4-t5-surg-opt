@@ -1,4 +1,4 @@
-# Database Schema - Module 5 (Surgical Optimization)
+# Database Schema - Module 5 (Surgical Optimization)(Lilas Hamadah & Raghad Brejawi)
 
 ## 1. Entity-Relationship Diagram (ERD)(lilas Hamadah)
 * الأداة المستخدمة: Draw.io
@@ -144,7 +144,7 @@ https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql#%7B%22pag
 * الشروط المسبقة: العملية الأولى تنتهي الساعة 11:00 تماماً (الفارق المتاح 15 دقيقة فقط).
   * استجابة النظام: يكتشف النظام خرق قاعدة التعقيم الإلزامية (BR_OR_03)، فيقوم بإلغاء العملية برمجياً فوراً وتغيير الحالة إلى "Cancelled"، ويظهر تنبيهاً للمستخدم برفض الحجز لعدم كفاية وقت التعقيم.
 
-## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)
+## 4. SQL DDL Commands (أكواد بناء قاعدة البيانات)(Lilas Hamadah)
 
 ```sql
 -- 1. جدول غرف العمليات
