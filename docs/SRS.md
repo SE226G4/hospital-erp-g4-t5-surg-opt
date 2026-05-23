@@ -47,9 +47,9 @@
 
 ## 4. Process Modeling & Workflow (Raghad Brejawi)
 * **رابط تعديل الـ Activity Diagram على Draw.io:** [اضغط هنا لفتح المخطط](https://app.diagrams.net/?src=about#G1n_gHUHRdaoX0f3uAjbqCSA8GBcrKjpql)
-* **عرض مخطط النشاط البنيوي:**
-![Surgical Scheduling Activity Diagram](../activity-diagram.png)
+  
 
+ملاحظة : يوجد page1 تحوي مخطط activity diagram و page2 تحوي مخطط ERD داخل الرابط  
 ### 4.1 Business Rules & Verification Logic
 * **BR_OR_01 (تضارب الموارد):** يمنع حجز عمليتين جراحيتين في نفس غرفة العمليات وفي نفس الوقت تماماً.
 * **BR_OR_02 (توفر الطاقم الطبي):** يجب أن يكون الطبيب الجراح وطبيب التخدير المختارين متاحين وغير مرتبطين بعملية أخرى.
