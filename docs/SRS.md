@@ -97,13 +97,6 @@
 
 ---
 
-### 6.2 Visual Diagrams Display (عرض المخططات الهندسية)
-
-#### A. Class Diagram
-![Class Diagram لقسم الجراحة](../docs/classDiagram.drawio (1).png)
-
-#### B. Entity-Relationship Diagram (ERD)
-![Entity Relationship Diagram](../ERD.png)
 
 ---
 
