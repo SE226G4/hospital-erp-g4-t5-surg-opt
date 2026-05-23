@@ -4,8 +4,8 @@
 ## 1. Entity-Relationship Diagram (ERD)(lilas Hamadah)
 
 * **الأداة المستخدمة:** Draw.io
-* **رابط تعديل المخطط على Draw.io:** [اضغط هنا لفتح المخطط القابل للتعديل](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
-* **رابط تعديل مخطط الأصناف (Class Diagram):** [اضغط هنا لفتح المخطط القابل للتعديل](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
+* **رابط تعديل المخطط على Draw.io:**(https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
+* **رابط تعديل مخطط الأصناف (Class Diagram):**](https://app.diagrams.net/#G1yZqmGC88vFT4IEP5lTKCrpYUxhzKq57N#%7B%22pageId%22%3A%22wWFlRW2iCIbDgGKqphHK%22%7D)
 
 ---
 
