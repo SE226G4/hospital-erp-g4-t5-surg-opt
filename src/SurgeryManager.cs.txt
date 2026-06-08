@@ -1,0 +1,52 @@
+using System;
+
+namespace SurgicalOptimizationFardiat
+{
+    public class SurgeryManager
+    {
+
+        public string ConfirmSurgerySlot(bool isDoctorAvailable, bool isRoomFree, int cleanTimeMinutes, bool isPreOpDone)
+        {
+            if (isDoctorAvailable)
+            {
+                if (isRoomFree)
+                {
+                    if (cleanTimeMinutes >= 30)
+                    {
+                        if (isPreOpDone)
+                        {
+                            return "SUCCESS: Order Confirmed";
+                        }
+                        else
+                        {
+                            return "FAILED: Pre-Op Not Ready";
+                        }
+                    }
+                    else
+                    {
+                        return "FAILED: Insufficient Sterilization Time";
+                    }
+                }
+                else
+                {
+                    return "FAILED: Room Occupied";
+                }
+            }
+            else
+            {
+                return "FAILED: Doctor Unavailable";
+            }
+        }
+
+       Refactoring Guard Clauses)
+        public string ConfirmSurgerySlotRefactored(bool isDoctorAvailable, bool isRoomFree, int cleanTimeMinutes, bool isPreOpDone)
+        {
+            if (!isDoctorAvailable) return "FAILED: Doctor Unavailable";
+            if (!isRoomFree) return "FAILED: Room Occupied";
+            if (cleanTimeMinutes < 30) return "FAILED: Insufficient Sterilization Time";
+            if (!isPreOpDone) return "FAILED: Pre-Op Not Ready";
+
+            return "SUCCESS: Order Confirmed";
+        }
+    }
+}
