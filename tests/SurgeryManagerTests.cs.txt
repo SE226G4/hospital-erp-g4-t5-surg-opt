@@ -1,0 +1,28 @@
+using System;
+
+namespace SurgicalOptimizationFardiat
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            SurgeryManager manager = new SurgeryManager();
+
+            Console.WriteLine("=== Executing Individual Test Cases ===");
+    
+            string outcome1 = manager.ConfirmSurgerySlot(true, true, 40, true);
+            Console.WriteLine($"Test 1 (Valid): Expected [SUCCESS] -> Got: [{outcome1}]");
+
+            string outcome2 = manager.ConfirmSurgerySlot(true, true, 15, true);
+            Console.WriteLine($"Test 2 (Invalid Buffer): Expected [FAILED] -> Got: [{outcome2}]");
+
+            Console.WriteLine("\n=== Executing Refactored Test Cases (Guard Clauses) ===");
+       
+            string result1 = manager.ConfirmSurgerySlotRefactored(true, true, 45, true);
+            Console.WriteLine($"Refactored Test 1: Expected [SUCCESS] -> Got: [{result1}]");
+
+            string result2 = manager.ConfirmSurgerySlotRefactored(true, true, 15, true);
+            Console.WriteLine($"Refactored Test 2: Expected [FAILED] -> Got: [{result2}]");
+        }
+    }
+}
